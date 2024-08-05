@@ -10,7 +10,7 @@
 - [ ] Accellerator
 
 ## Theoretical Goals
-- [ ] Understanding what to do
-- [ ] Generating the signal with the noise
-- [ ] Using it to put the FPGA on
+- [X] Understanding what to do
+- [X] Generating the signal with the noise
+- [X] Using it to put the FPGA on
 
