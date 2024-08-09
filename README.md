@@ -14,3 +14,5 @@
 - [X] Generating the signal with the noise
 - [X] Using it to put the FPGA on
 
+
+
