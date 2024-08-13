@@ -7,7 +7,7 @@
 - [x] Boot using Picocom
 - [x] Update the SD card OS
 - [x] Blinking Led Project
-- [ ] Analog Echo Project 
+- [/] Analog Echo Project 
 - [ ] DMA demo Project
 - [ ] FFT Accelerator Project (DMA data in)
 - [ ] Spectrum Analyzer (ADC in PS)
