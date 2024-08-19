@@ -16,11 +16,11 @@
 - [ ] Accellerator
 
 ## FFT Accelerator
-- [ ] Sin Wave
-- [ ] Sin Wave with real number
-- [ ] FFT sw
-- [ ] FFT hw
-- [ ] Double-sided Spectrum
+- [x] Sin Wave
+- [x] Sin Wave with real number
+- [x] FFT sw
+- [x] FFT hw
+- [x] Double-sided Spectrum
 - [ ] Amplitude and Udig
 
 ## Technical Goals (4x2 board)
