@@ -37,4 +37,4 @@ The beams are accelerated using **RF cavities**, while to control the **Magnets*
 All the accelerator are controlled by the **Main Control Room (MCR)**.
 
 
-
+# Magnets

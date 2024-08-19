@@ -7,13 +7,21 @@
 - [x] Boot using Picocom
 - [x] Update the SD card OS
 - [x] Blinking Led Project
-- [/] Analog Echo Project 
+- [x] Analog Echo Project 
 - [x] DMA demo Project
-- [ ] FFT Accelerator Project (DMA data in)
+- [x] FFT Accelerator Project (DMA data in)
 - [ ] Spectrum Analyzer (ADC in PS)
 - [ ] CS Accelerator (DMA input)
 - [ ] Correlator (2x ADC in)
 - [ ] Accellerator
+
+## FFT Accelerator
+- [ ] Sin Wave
+- [ ] Sin Wave with real number
+- [ ] FFT sw
+- [ ] FFT hw
+- [ ] Double-sided Spectrum
+- [ ] Amplitude and Udig
 
 ## Technical Goals (4x2 board)
 - [ ] Establish Serial Connection
