@@ -1,46 +1,57 @@
+
 # FPGA for Signal Detection
 
- This project focuses on the RedPitaya board in order to perform signal detection fot the GQuEST experiment at FermiLab in the context of my summer internship, for my purpouses I will focus on experimenting with the FPGA, the Vivado environment and Pynq environment.
+This project involves implementing correlation module on the FPGA board for the GQuEST experiment at Fermilab, as part of my summer internship. The focus is on experimenting with the FPGA, Vivado, and Pynq environments.
 
-## Technical Goals (RedPitaya)
-- [x] Establish Serial Connection
-- [x] Boot using Picocom
-- [x] Update the SD card OS
-- [x] Blinking Led Project
-- [x] Analog Echo Project 
-- [x] DMA demo Project
-- [x] FFT Accelerator Project (DMA data in)
-- [ ] Spectrum Analyzer (ADC in PS)
-- [ ] CS Accelerator (DMA input)
-- [ ] Correlator (2x ADC in)
-- [ ] Accellerator
+## Technical Goals
 
-## FFT Accelerator
-- [x] Sin Wave
-- [x] Sin Wave with real number
-- [x] FFT sw
-- [x] FFT hw
-- [x] Double-sided Spectrum
-- [ ] Amplitude and Udig
+The first goal is the basic understanding of how an FPGA works, and the basic model used for this part is the RedPitaya.
 
-## Technical Goals (4x2 board)
-- [ ] Establish Serial Connection
-- [ ] Boot using Picocom
-- [ ] Update the SD card OS
-- [ ] Blinking Led Project
-- [ ] Analog Echo Project 
-- [ ] DMA demo Project
-- [ ] FFT Accelerator Project (DMA data in)
-- [ ] Spectrum Analyzer (ADC in PS)
-- [ ] CS Accelerator (DMA input)
-- [ ] Correlator (2x ADC in)
-- [ ] Accellerator
+### Red Pitaya Board
+1. **Setup & Configuration:**
+   - [x] Establish Serial Connection
+   - [x] Boot using Picocom
+   - [x] Update the SD card OS
 
+2. **Basic Projects:**
+   - [x] Blinking LED Project
+   - [x] Analog Echo Project 
 
-## Theoretical Goals
-- [X] Understanding what to do
-- [X] Generating the signal with the noise
-- [X] Using it to put the FPGA on
+3. **Advanced Projects:**
+   - [x] DMA Demo Project
+   - [x] FFT Accelerator Project (DMA data in)
+   - [ ] Spectrum Analyzer (ADC in PS)
+   - [ ] CS Accelerator (DMA input)
+   - [ ] Correlator (2x ADC in)
+   - [ ] Accelerator
 
+### FFT Accelerator
+1. **Signal Generation:**
+   - [x] Sin Wave
+   - [x] Sin Wave with real number
 
+2. **FFT Implementation:**
+   - [x] FFT in software
+   - [x] FFT in hardware
+   - [x] Double-sided Spectrum
+   - [ ] Amplitude and Udig
 
+ The second part is performed on a 4x2 FPGA board:
+
+### 4x2 Board
+1. **Setup & Configuration:**
+   - [ ] Establish Serial Connection
+   - [ ] Boot using Picocom
+   - [ ] Update the SD card OS
+
+2. **Basic Projects:**
+   - [ ] Blinking LED Project
+   - [ ] Analog Echo Project 
+
+3. **Advanced Projects:**
+   - [ ] DMA Demo Project
+   - [ ] FFT Accelerator Project (DMA data in)
+   - [ ] Spectrum Analyzer (ADC in PS)
+   - [ ] CS Accelerator (DMA input)
+   - [ ] Correlator (2x ADC in)
+   - [ ] Accelerator
