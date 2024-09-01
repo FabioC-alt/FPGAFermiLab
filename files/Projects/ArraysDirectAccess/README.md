@@ -1,4 +1,4 @@
-## Step-by-Step Implementation Guide
+# Step-by-Step Implementation Guide
 
 ### 1. Create a Numpy Array in Python
 - Generate a numpy array, `weight`, and fill it with known values (e.g., `[1, 2, 3, ...]`).
