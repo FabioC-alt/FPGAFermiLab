@@ -47,3 +47,13 @@ They can be used together if we need to transfer a large dataset from an externa
 Once the dataset is in the BRAM, the FPGA logic can process the data quickly. After the processing the data can be transfered using the DMA back to the external memory.
 
 ![altext](/files/Projects/ArraysDirectAccess/Diagram.jpg)
+
+
+## How to set up a Block Ram
+The two parameters we need to configure are **Width** and **Depth**.
+The width is the amount of bits we need to use for each number that is saved in the BRAM, while the Depth is the amount of number that can be saved in the BRAM.
+
+
+## How to set up the Direct Memory Access
+
+The direct memory access is a method for accessint the memory on the FPGA, included the block ram. The parameters should be the same to make them work togheter.
