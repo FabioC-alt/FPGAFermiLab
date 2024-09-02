@@ -1,4 +1,4 @@
-# Step-by-Step Implementation Guide
+# Array Access in FPGA
 
 ### 1. Create a Numpy Array in Python
 - Generate a numpy array, `weight`, and fill it with known values (e.g., `[1, 2, 3, ...]`).
@@ -11,7 +11,7 @@
 - Set up an AXI Direct Memory Access (DMA) interface in your FPGA design.
 - Use the DMA to transfer the `weight` array from your Python program to the FPGA block RAM.
 - Ensure that the DMA is configured to write the data into the correct memory location.
-
+V
 ### 4. Configure AXI-GPIO for Communication
 - Set up an AXI-GPIO module in your FPGA design.
 - Configure the GPIO for both input (to receive the index) and output (to send the retrieved value).
@@ -56,4 +56,37 @@ The width is the amount of bits we need to use for each number that is saved in 
 
 ## How to set up the Direct Memory Access
 
-The direct memory access is a method for accessint the memory on the FPGA, included the block ram. The parameters should be the same to make them work togheter.
+AXI DMA (Direct Memory Access) is a core provided by Xilinx that facilitates the transfer of data between memory and peripherals in a system on a chip (SoC) without the continuous involvement of the processor.
+
+The main components are:
+- AXI4-Stream Interface
+- AXI4 Memory-Mapped Interface
+- Scatter-Gather Engine
+
+The default mode in which it operates is with a **Simple DMA Mode**. The DMA Transfer a single contiguos block of data from memory to the peripheral or vice versa.
+
+### Working Principle
+The operation cycle is typically:
+- Configuration 
+- Initiating The Transfer
+- Data Transfer
+- Complention 
+
+### Configuration 
+The parameters that can be modified are **Data width**, **Burst Length** and **Address width**. 
+
+Data width defines the width of the data bus. This affects the amount of data that can be transfered per cycle.
+
+The Burst Length defines the maximum number of data beats per burst
+
+Address width is the parameter that determines the width of the address bus.
+
+## Data Transfer
+The data transfer can be perfomed in two ways:
+- MM2S : This transfer is performed from the memory mapped to streaming interface, this is typically use when we want to read the data from the memory and send it to the peripheral
+
+- S2MM : This is the case where we want to store data into a an FPGA.
+
+## The Block Ram
+The first thing to do to use a BRAM is to import the **Block Ram Generator**. 
+Then select the type of memory (RAM vs ROM) to use. Then choose the *Write width* and the *Read Width*.
