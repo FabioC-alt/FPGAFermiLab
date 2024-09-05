@@ -530,6 +530,7 @@ proc create_root_design { parentCell } {
     CONFIG.c_m_axi_mm2s_data_width {64} \
     CONFIG.c_m_axis_mm2s_tdata_width {16} \
     CONFIG.c_mm2s_burst_size {64} \
+    CONFIG.c_sg_length_width {16} \
   ] $axi_dma_0
 
 
@@ -549,6 +550,7 @@ proc create_root_design { parentCell } {
     CONFIG.c_m_axi_mm2s_data_width {64} \
     CONFIG.c_m_axis_mm2s_tdata_width {16} \
     CONFIG.c_mm2s_burst_size {64} \
+    CONFIG.c_sg_length_width {16} \
   ] $axi_dma_1
 
 
@@ -573,7 +575,9 @@ proc create_root_design { parentCell } {
      catch {common::send_gid_msg -ssname BD::TCL -id 2096 -severity "ERROR" "Unable to referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
      return 1
    }
-  
+    set_property CONFIG.DATA_WIDTH {16} $stream_adder_0
+
+
   # Create instance: axi_dma_2, and set properties
   set axi_dma_2 [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_dma:7.1 axi_dma_2 ]
   set_property -dict [list \
@@ -582,6 +586,7 @@ proc create_root_design { parentCell } {
     CONFIG.c_m_axi_s2mm_data_width {64} \
     CONFIG.c_s2mm_burst_size {64} \
     CONFIG.c_s_axis_s2mm_tdata_width {16} \
+    CONFIG.c_sg_length_width {8} \
   ] $axi_dma_2
 
 
