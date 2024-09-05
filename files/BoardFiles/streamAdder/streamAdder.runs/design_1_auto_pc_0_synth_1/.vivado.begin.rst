@@ -1,5 +1,0 @@
-<?xml version="1.0"?>
-<ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado" Owner="faciraci" Host="correlator6.fnal.gov" Pid="821547" HostCore="16" HostMemory="131313932">
-    </Process>
-</ProcessHandle>
