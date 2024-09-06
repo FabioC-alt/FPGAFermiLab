@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Fri Sep  6 15:56:56 2024" VIVADOVERSION="2024.1">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Fri Sep  6 16:42:25 2024" VIVADOVERSION="2024.1">
 
   <SYSTEMINFO ARCH="zynq" BOARD="redpitaya.com:redpitaya-125-14:part0:1.0" DEVICE="7z010" NAME="design_1" PACKAGE="clg400" SPEEDGRADE="-1"/>
 
@@ -1130,22 +1130,17 @@
         </PORT>
         <PORT DIR="O" LEFT="15" NAME="m_axis_mm2s_tdata" RIGHT="0" SIGIS="undef" SIGNAME="axi_dma_0_m_axis_mm2s_tdata">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="stream_adder_0" PORT="data_0_i_tdata"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" NAME="m_axis_mm2s_tlast" SIGIS="undef" SIGNAME="axi_dma_0_m_axis_mm2s_tlast">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="stream_adder_0" PORT="data_0_i_tlast"/>
+            <CONNECTION INSTANCE="stream_ctrl_1" PORT="stream_i_tdata"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" NAME="m_axis_mm2s_tready" SIGIS="undef" SIGNAME="axi_dma_0_m_axis_mm2s_tready">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="stream_adder_0" PORT="data_0_i_tready"/>
+            <CONNECTION INSTANCE="stream_ctrl_1" PORT="stream_i_tready"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="m_axis_mm2s_tvalid" SIGIS="undef" SIGNAME="axi_dma_0_m_axis_mm2s_tvalid">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="stream_adder_0" PORT="data_0_i_tvalid"/>
+            <CONNECTION INSTANCE="stream_ctrl_1" PORT="stream_i_tvalid"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="mm2s_introut" SENSITIVITY="LEVEL_HIGH" SIGIS="INTERRUPT"/>
@@ -1353,7 +1348,6 @@
           <PARAMETER NAME="TUSER_WIDTH" VALUE="0"/>
           <PORTMAPS>
             <PORTMAP LOGICAL="TDATA" PHYSICAL="m_axis_mm2s_tdata"/>
-            <PORTMAP LOGICAL="TLAST" PHYSICAL="m_axis_mm2s_tlast"/>
             <PORTMAP LOGICAL="TREADY" PHYSICAL="m_axis_mm2s_tready"/>
             <PORTMAP LOGICAL="TVALID" PHYSICAL="m_axis_mm2s_tvalid"/>
           </PORTMAPS>
@@ -1364,7 +1358,7 @@
       </MEMORYMAP>
       <PERIPHERALS>
         <PERIPHERAL INSTANCE="processing_system7_0"/>
-        <PERIPHERAL INSTANCE="stream_adder_0"/>
+        <PERIPHERAL INSTANCE="stream_ctrl_1"/>
       </PERIPHERALS>
     </MODULE>
     <MODULE COREREVISION="32" FULLNAME="/axi_dma_1" HWVERSION="7.1" INSTANCE="axi_dma_1" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="axi_dma" VLNV="xilinx.com:ip:axi_dma:7.1">
@@ -2328,22 +2322,17 @@
         </PORT>
         <PORT DIR="O" LEFT="15" NAME="m_axis_mm2s_tdata" RIGHT="0" SIGIS="undef" SIGNAME="axi_dma_1_m_axis_mm2s_tdata">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="stream_adder_0" PORT="data_1_i_tdata"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" NAME="m_axis_mm2s_tlast" SIGIS="undef" SIGNAME="axi_dma_1_m_axis_mm2s_tlast">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="stream_adder_0" PORT="data_1_i_tlast"/>
+            <CONNECTION INSTANCE="stream_ctrl_2" PORT="stream_i_tdata"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" NAME="m_axis_mm2s_tready" SIGIS="undef" SIGNAME="axi_dma_1_m_axis_mm2s_tready">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="stream_adder_0" PORT="data_1_i_tready"/>
+            <CONNECTION INSTANCE="stream_ctrl_2" PORT="stream_i_tready"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="m_axis_mm2s_tvalid" SIGIS="undef" SIGNAME="axi_dma_1_m_axis_mm2s_tvalid">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="stream_adder_0" PORT="data_1_i_tvalid"/>
+            <CONNECTION INSTANCE="stream_ctrl_2" PORT="stream_i_tvalid"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="mm2s_introut" SENSITIVITY="LEVEL_HIGH" SIGIS="INTERRUPT"/>
@@ -2551,7 +2540,6 @@
           <PARAMETER NAME="TUSER_WIDTH" VALUE="0"/>
           <PORTMAPS>
             <PORTMAP LOGICAL="TDATA" PHYSICAL="m_axis_mm2s_tdata"/>
-            <PORTMAP LOGICAL="TLAST" PHYSICAL="m_axis_mm2s_tlast"/>
             <PORTMAP LOGICAL="TREADY" PHYSICAL="m_axis_mm2s_tready"/>
             <PORTMAP LOGICAL="TVALID" PHYSICAL="m_axis_mm2s_tvalid"/>
           </PORTMAPS>
@@ -2562,7 +2550,7 @@
       </MEMORYMAP>
       <PERIPHERALS>
         <PERIPHERAL INSTANCE="processing_system7_0"/>
-        <PERIPHERAL INSTANCE="stream_adder_0"/>
+        <PERIPHERAL INSTANCE="stream_ctrl_2"/>
       </PERIPHERALS>
     </MODULE>
     <MODULE COREREVISION="32" FULLNAME="/axi_dma_2" HWVERSION="7.1" INSTANCE="axi_dma_2" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="axi_dma" VLNV="xilinx.com:ip:axi_dma:7.1">
@@ -3977,12 +3965,16 @@
         <PORT DIR="O" LEFT="31" NAME="gpio2_io_o" RIGHT="0" SIGIS="undef" SIGNAME="axi_gpio_0_gpio2_io_o">
           <CONNECTIONS>
             <CONNECTION INSTANCE="stream_ctrl_0" PORT="samples"/>
+            <CONNECTION INSTANCE="stream_ctrl_1" PORT="samples"/>
+            <CONNECTION INSTANCE="stream_ctrl_2" PORT="samples"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="0" NAME="gpio_io_o" RIGHT="0" SIGIS="undef" SIGNAME="axi_gpio_0_gpio_io_o">
           <CONNECTIONS>
             <CONNECTION INSTANCE="stream_adder_0" PORT="trig"/>
             <CONNECTION INSTANCE="stream_ctrl_0" PORT="trig"/>
+            <CONNECTION INSTANCE="stream_ctrl_1" PORT="trig"/>
+            <CONNECTION INSTANCE="stream_ctrl_2" PORT="trig"/>
           </CONNECTIONS>
         </PORT>
         <PORT CLKFREQUENCY="125000000" DIR="I" NAME="s_axi_aclk" SIGIS="clk" SIGNAME="clk_0_clk_125">
@@ -6140,6 +6132,8 @@
             <CONNECTION INSTANCE="axi_interconnect_1" PORT="M03_ACLK"/>
             <CONNECTION INSTANCE="stream_adder_0" PORT="clk"/>
             <CONNECTION INSTANCE="stream_ctrl_0" PORT="clk"/>
+            <CONNECTION INSTANCE="stream_ctrl_1" PORT="clk"/>
+            <CONNECTION INSTANCE="stream_ctrl_2" PORT="clk"/>
           </CONNECTIONS>
         </PORT>
         <PORT CLKFREQUENCY="250000000" DIR="O" NAME="clk_250" SIGIS="clk"/>
@@ -6207,6 +6201,8 @@
             <CONNECTION INSTANCE="axi_interconnect_1" PORT="M03_ARESETN"/>
             <CONNECTION INSTANCE="stream_adder_0" PORT="resetn"/>
             <CONNECTION INSTANCE="stream_ctrl_0" PORT="resetn"/>
+            <CONNECTION INSTANCE="stream_ctrl_1" PORT="resetn"/>
+            <CONNECTION INSTANCE="stream_ctrl_2" PORT="resetn"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="0" NAME="peripheral_reset" POLARITY="ACTIVE_HIGH" RIGHT="0" SIGIS="rst"/>
@@ -7917,44 +7913,44 @@
             <CONNECTION INSTANCE="clk_0" PORT="clk_125"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="15" NAME="data_0_i_tdata" RIGHT="0" SIGIS="undef" SIGNAME="axi_dma_0_m_axis_mm2s_tdata">
+        <PORT DIR="I" LEFT="15" NAME="data_0_i_tdata" RIGHT="0" SIGIS="undef" SIGNAME="stream_adder_0_data_0_i_tdata">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_dma_0" PORT="m_axis_mm2s_tdata"/>
+            <CONNECTION INSTANCE="stream_ctrl_1" PORT="stream_o_tdata"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="data_0_i_tlast" SIGIS="undef" SIGNAME="axi_dma_0_m_axis_mm2s_tlast">
+        <PORT DIR="I" NAME="data_0_i_tlast" SIGIS="undef" SIGNAME="stream_adder_0_data_0_i_tlast">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_dma_0" PORT="m_axis_mm2s_tlast"/>
+            <CONNECTION INSTANCE="stream_ctrl_1" PORT="stream_o_tlast"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="data_0_i_tready" SIGIS="undef" SIGNAME="axi_dma_0_m_axis_mm2s_tready">
+        <PORT DIR="O" NAME="data_0_i_tready" SIGIS="undef" SIGNAME="stream_adder_0_data_0_i_tready">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_dma_0" PORT="m_axis_mm2s_tready"/>
+            <CONNECTION INSTANCE="stream_ctrl_1" PORT="stream_o_tready"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="data_0_i_tvalid" SIGIS="undef" SIGNAME="axi_dma_0_m_axis_mm2s_tvalid">
+        <PORT DIR="I" NAME="data_0_i_tvalid" SIGIS="undef" SIGNAME="stream_adder_0_data_0_i_tvalid">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_dma_0" PORT="m_axis_mm2s_tvalid"/>
+            <CONNECTION INSTANCE="stream_ctrl_1" PORT="stream_o_tvalid"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="15" NAME="data_1_i_tdata" RIGHT="0" SIGIS="undef" SIGNAME="axi_dma_1_m_axis_mm2s_tdata">
+        <PORT DIR="I" LEFT="15" NAME="data_1_i_tdata" RIGHT="0" SIGIS="undef" SIGNAME="stream_adder_0_data_1_i_tdata">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_dma_1" PORT="m_axis_mm2s_tdata"/>
+            <CONNECTION INSTANCE="stream_ctrl_2" PORT="stream_o_tdata"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="data_1_i_tlast" SIGIS="undef" SIGNAME="axi_dma_1_m_axis_mm2s_tlast">
+        <PORT DIR="I" NAME="data_1_i_tlast" SIGIS="undef" SIGNAME="stream_adder_0_data_1_i_tlast">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_dma_1" PORT="m_axis_mm2s_tlast"/>
+            <CONNECTION INSTANCE="stream_ctrl_2" PORT="stream_o_tlast"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="data_1_i_tready" SIGIS="undef" SIGNAME="axi_dma_1_m_axis_mm2s_tready">
+        <PORT DIR="O" NAME="data_1_i_tready" SIGIS="undef" SIGNAME="stream_adder_0_data_1_i_tready">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_dma_1" PORT="m_axis_mm2s_tready"/>
+            <CONNECTION INSTANCE="stream_ctrl_2" PORT="stream_o_tready"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="data_1_i_tvalid" SIGIS="undef" SIGNAME="axi_dma_1_m_axis_mm2s_tvalid">
+        <PORT DIR="I" NAME="data_1_i_tvalid" SIGIS="undef" SIGNAME="stream_adder_0_data_1_i_tvalid">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_dma_1" PORT="m_axis_mm2s_tvalid"/>
+            <CONNECTION INSTANCE="stream_ctrl_2" PORT="stream_o_tvalid"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="15" NAME="data_o_tdata" RIGHT="0" SIGIS="undef" SIGNAME="stream_adder_0_data_o_tdata">
@@ -7979,7 +7975,7 @@
         </PORT>
       </PORTS>
       <BUSINTERFACES>
-        <BUSINTERFACE BUSNAME="axi_dma_0_M_AXIS_MM2S" NAME="data_0_i" TYPE="TARGET" VLNV="xilinx.com:interface:axis:1.0">
+        <BUSINTERFACE BUSNAME="stream_ctrl_1_stream_o" NAME="data_0_i" TYPE="TARGET" VLNV="xilinx.com:interface:axis:1.0">
           <PARAMETER NAME="CLK_DOMAIN" VALUE="design_1_clk_0_0_clk_125"/>
           <PARAMETER NAME="FREQ_HZ" VALUE="125000000"/>
           <PARAMETER NAME="HAS_TKEEP" VALUE="0"/>
@@ -8000,7 +7996,7 @@
             <PORTMAP LOGICAL="TVALID" PHYSICAL="data_0_i_tvalid"/>
           </PORTMAPS>
         </BUSINTERFACE>
-        <BUSINTERFACE BUSNAME="axi_dma_1_M_AXIS_MM2S" NAME="data_1_i" TYPE="TARGET" VLNV="xilinx.com:interface:axis:1.0">
+        <BUSINTERFACE BUSNAME="stream_ctrl_2_stream_o" NAME="data_1_i" TYPE="TARGET" VLNV="xilinx.com:interface:axis:1.0">
           <PARAMETER NAME="CLK_DOMAIN" VALUE="design_1_clk_0_0_clk_125"/>
           <PARAMETER NAME="FREQ_HZ" VALUE="125000000"/>
           <PARAMETER NAME="HAS_TKEEP" VALUE="0"/>
@@ -8122,6 +8118,222 @@
           </PORTMAPS>
         </BUSINTERFACE>
         <BUSINTERFACE BUSNAME="stream_ctrl_0_stream_o" NAME="stream_o" TYPE="INITIATOR" VLNV="xilinx.com:interface:axis:1.0">
+          <PARAMETER NAME="CLK_DOMAIN" VALUE="design_1_clk_0_0_clk_125"/>
+          <PARAMETER NAME="FREQ_HZ" VALUE="125000000"/>
+          <PARAMETER NAME="HAS_TKEEP" VALUE="0"/>
+          <PARAMETER NAME="HAS_TLAST" VALUE="1"/>
+          <PARAMETER NAME="HAS_TREADY" VALUE="1"/>
+          <PARAMETER NAME="HAS_TSTRB" VALUE="0"/>
+          <PARAMETER NAME="INSERT_VIP" VALUE="0"/>
+          <PARAMETER NAME="LAYERED_METADATA" VALUE="undef"/>
+          <PARAMETER NAME="PHASE" VALUE="0.0"/>
+          <PARAMETER NAME="TDATA_NUM_BYTES" VALUE="2"/>
+          <PARAMETER NAME="TDEST_WIDTH" VALUE="0"/>
+          <PARAMETER NAME="TID_WIDTH" VALUE="0"/>
+          <PARAMETER NAME="TUSER_WIDTH" VALUE="0"/>
+          <PORTMAPS>
+            <PORTMAP LOGICAL="TDATA" PHYSICAL="stream_o_tdata"/>
+            <PORTMAP LOGICAL="TLAST" PHYSICAL="stream_o_tlast"/>
+            <PORTMAP LOGICAL="TREADY" PHYSICAL="stream_o_tready"/>
+            <PORTMAP LOGICAL="TVALID" PHYSICAL="stream_o_tvalid"/>
+          </PORTMAPS>
+        </BUSINTERFACE>
+      </BUSINTERFACES>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/stream_ctrl_1" HWVERSION="1.0" INSTANCE="stream_ctrl_1" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="stream_ctrl" VLNV="xilinx.com:module_ref:stream_ctrl:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="DATA_WIDTH" VALUE="16"/>
+        <PARAMETER NAME="Component_Name" VALUE="design_1_stream_ctrl_1_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT CLKFREQUENCY="125000000" DIR="I" NAME="clk" SIGIS="clk" SIGNAME="clk_0_clk_125">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="clk_0" PORT="clk_125"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="resetn" POLARITY="ACTIVE_LOW" SIGIS="rst" SIGNAME="proc_sys_reset_0_peripheral_aresetn">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="proc_sys_reset_0" PORT="peripheral_aresetn"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="31" NAME="samples" RIGHT="0" SIGIS="undef" SIGNAME="axi_gpio_0_gpio2_io_o">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_gpio_0" PORT="gpio2_io_o"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="stream_i_tdata" RIGHT="0" SIGIS="undef" SIGNAME="axi_dma_0_m_axis_mm2s_tdata">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_dma_0" PORT="m_axis_mm2s_tdata"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="stream_i_tready" SIGIS="undef" SIGNAME="axi_dma_0_m_axis_mm2s_tready">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_dma_0" PORT="m_axis_mm2s_tready"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="stream_i_tvalid" SIGIS="undef" SIGNAME="axi_dma_0_m_axis_mm2s_tvalid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_dma_0" PORT="m_axis_mm2s_tvalid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="stream_o_tdata" RIGHT="0" SIGIS="undef" SIGNAME="stream_adder_0_data_0_i_tdata">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="stream_adder_0" PORT="data_0_i_tdata"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="stream_o_tlast" SIGIS="undef" SIGNAME="stream_adder_0_data_0_i_tlast">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="stream_adder_0" PORT="data_0_i_tlast"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="stream_o_tready" SIGIS="undef" SIGNAME="stream_adder_0_data_0_i_tready">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="stream_adder_0" PORT="data_0_i_tready"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="stream_o_tvalid" SIGIS="undef" SIGNAME="stream_adder_0_data_0_i_tvalid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="stream_adder_0" PORT="data_0_i_tvalid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="trig" SIGIS="undef" SIGNAME="axi_gpio_0_gpio_io_o">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_gpio_0" PORT="gpio_io_o"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES>
+        <BUSINTERFACE BUSNAME="axi_dma_0_M_AXIS_MM2S" NAME="stream_i" TYPE="TARGET" VLNV="xilinx.com:interface:axis:1.0">
+          <PARAMETER NAME="CLK_DOMAIN" VALUE="design_1_clk_0_0_clk_125"/>
+          <PARAMETER NAME="FREQ_HZ" VALUE="125000000"/>
+          <PARAMETER NAME="HAS_TKEEP" VALUE="0"/>
+          <PARAMETER NAME="HAS_TLAST" VALUE="0"/>
+          <PARAMETER NAME="HAS_TREADY" VALUE="1"/>
+          <PARAMETER NAME="HAS_TSTRB" VALUE="0"/>
+          <PARAMETER NAME="INSERT_VIP" VALUE="0"/>
+          <PARAMETER NAME="LAYERED_METADATA" VALUE="undef"/>
+          <PARAMETER NAME="PHASE" VALUE="0.0"/>
+          <PARAMETER NAME="TDATA_NUM_BYTES" VALUE="2"/>
+          <PARAMETER NAME="TDEST_WIDTH" VALUE="0"/>
+          <PARAMETER NAME="TID_WIDTH" VALUE="0"/>
+          <PARAMETER NAME="TUSER_WIDTH" VALUE="0"/>
+          <PORTMAPS>
+            <PORTMAP LOGICAL="TDATA" PHYSICAL="stream_i_tdata"/>
+            <PORTMAP LOGICAL="TREADY" PHYSICAL="stream_i_tready"/>
+            <PORTMAP LOGICAL="TVALID" PHYSICAL="stream_i_tvalid"/>
+          </PORTMAPS>
+        </BUSINTERFACE>
+        <BUSINTERFACE BUSNAME="stream_ctrl_1_stream_o" NAME="stream_o" TYPE="INITIATOR" VLNV="xilinx.com:interface:axis:1.0">
+          <PARAMETER NAME="CLK_DOMAIN" VALUE="design_1_clk_0_0_clk_125"/>
+          <PARAMETER NAME="FREQ_HZ" VALUE="125000000"/>
+          <PARAMETER NAME="HAS_TKEEP" VALUE="0"/>
+          <PARAMETER NAME="HAS_TLAST" VALUE="1"/>
+          <PARAMETER NAME="HAS_TREADY" VALUE="1"/>
+          <PARAMETER NAME="HAS_TSTRB" VALUE="0"/>
+          <PARAMETER NAME="INSERT_VIP" VALUE="0"/>
+          <PARAMETER NAME="LAYERED_METADATA" VALUE="undef"/>
+          <PARAMETER NAME="PHASE" VALUE="0.0"/>
+          <PARAMETER NAME="TDATA_NUM_BYTES" VALUE="2"/>
+          <PARAMETER NAME="TDEST_WIDTH" VALUE="0"/>
+          <PARAMETER NAME="TID_WIDTH" VALUE="0"/>
+          <PARAMETER NAME="TUSER_WIDTH" VALUE="0"/>
+          <PORTMAPS>
+            <PORTMAP LOGICAL="TDATA" PHYSICAL="stream_o_tdata"/>
+            <PORTMAP LOGICAL="TLAST" PHYSICAL="stream_o_tlast"/>
+            <PORTMAP LOGICAL="TREADY" PHYSICAL="stream_o_tready"/>
+            <PORTMAP LOGICAL="TVALID" PHYSICAL="stream_o_tvalid"/>
+          </PORTMAPS>
+        </BUSINTERFACE>
+      </BUSINTERFACES>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/stream_ctrl_2" HWVERSION="1.0" INSTANCE="stream_ctrl_2" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="stream_ctrl" VLNV="xilinx.com:module_ref:stream_ctrl:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="DATA_WIDTH" VALUE="16"/>
+        <PARAMETER NAME="Component_Name" VALUE="design_1_stream_ctrl_1_1"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT CLKFREQUENCY="125000000" DIR="I" NAME="clk" SIGIS="clk" SIGNAME="clk_0_clk_125">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="clk_0" PORT="clk_125"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="resetn" POLARITY="ACTIVE_LOW" SIGIS="rst" SIGNAME="proc_sys_reset_0_peripheral_aresetn">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="proc_sys_reset_0" PORT="peripheral_aresetn"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="31" NAME="samples" RIGHT="0" SIGIS="undef" SIGNAME="axi_gpio_0_gpio2_io_o">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_gpio_0" PORT="gpio2_io_o"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="stream_i_tdata" RIGHT="0" SIGIS="undef" SIGNAME="axi_dma_1_m_axis_mm2s_tdata">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_dma_1" PORT="m_axis_mm2s_tdata"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="stream_i_tready" SIGIS="undef" SIGNAME="axi_dma_1_m_axis_mm2s_tready">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_dma_1" PORT="m_axis_mm2s_tready"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="stream_i_tvalid" SIGIS="undef" SIGNAME="axi_dma_1_m_axis_mm2s_tvalid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_dma_1" PORT="m_axis_mm2s_tvalid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="stream_o_tdata" RIGHT="0" SIGIS="undef" SIGNAME="stream_adder_0_data_1_i_tdata">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="stream_adder_0" PORT="data_1_i_tdata"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="stream_o_tlast" SIGIS="undef" SIGNAME="stream_adder_0_data_1_i_tlast">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="stream_adder_0" PORT="data_1_i_tlast"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="stream_o_tready" SIGIS="undef" SIGNAME="stream_adder_0_data_1_i_tready">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="stream_adder_0" PORT="data_1_i_tready"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="stream_o_tvalid" SIGIS="undef" SIGNAME="stream_adder_0_data_1_i_tvalid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="stream_adder_0" PORT="data_1_i_tvalid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="trig" SIGIS="undef" SIGNAME="axi_gpio_0_gpio_io_o">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_gpio_0" PORT="gpio_io_o"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES>
+        <BUSINTERFACE BUSNAME="axi_dma_1_M_AXIS_MM2S" NAME="stream_i" TYPE="TARGET" VLNV="xilinx.com:interface:axis:1.0">
+          <PARAMETER NAME="CLK_DOMAIN" VALUE="design_1_clk_0_0_clk_125"/>
+          <PARAMETER NAME="FREQ_HZ" VALUE="125000000"/>
+          <PARAMETER NAME="HAS_TKEEP" VALUE="0"/>
+          <PARAMETER NAME="HAS_TLAST" VALUE="0"/>
+          <PARAMETER NAME="HAS_TREADY" VALUE="1"/>
+          <PARAMETER NAME="HAS_TSTRB" VALUE="0"/>
+          <PARAMETER NAME="INSERT_VIP" VALUE="0"/>
+          <PARAMETER NAME="LAYERED_METADATA" VALUE="undef"/>
+          <PARAMETER NAME="PHASE" VALUE="0.0"/>
+          <PARAMETER NAME="TDATA_NUM_BYTES" VALUE="2"/>
+          <PARAMETER NAME="TDEST_WIDTH" VALUE="0"/>
+          <PARAMETER NAME="TID_WIDTH" VALUE="0"/>
+          <PARAMETER NAME="TUSER_WIDTH" VALUE="0"/>
+          <PORTMAPS>
+            <PORTMAP LOGICAL="TDATA" PHYSICAL="stream_i_tdata"/>
+            <PORTMAP LOGICAL="TREADY" PHYSICAL="stream_i_tready"/>
+            <PORTMAP LOGICAL="TVALID" PHYSICAL="stream_i_tvalid"/>
+          </PORTMAPS>
+        </BUSINTERFACE>
+        <BUSINTERFACE BUSNAME="stream_ctrl_2_stream_o" NAME="stream_o" TYPE="INITIATOR" VLNV="xilinx.com:interface:axis:1.0">
           <PARAMETER NAME="CLK_DOMAIN" VALUE="design_1_clk_0_0_clk_125"/>
           <PARAMETER NAME="FREQ_HZ" VALUE="125000000"/>
           <PARAMETER NAME="HAS_TKEEP" VALUE="0"/>
